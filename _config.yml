@@ -4,10 +4,11 @@ description: "Software Builder" # This will show up in places like twitter, link
 
 # Email / Social media user names used by the minima theme:
 # All of these are optional and can be removed or commented out
-email: "mikeldking@mail.com"
+email: "mikeldking@gmail.com"
 twitter_username: "mikeldking"
 github_username: "mikeldking"
 linkedin_username: "mikeldking"
+bluesky_username: "mikeldking.bsky.social"
 #facebook_username: username
 #flickr_username: username
 #instagram_username: username

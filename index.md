@@ -1,1 +1,1 @@
-Head of Open-Source at @arizeai.
+OSS Engineer.
