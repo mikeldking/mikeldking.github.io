@@ -53,7 +53,7 @@ Today our sales motion is drastically different. Instead of starting with a sale
 
 Looking back, my journey into open-source hasn't been driven by a pure sense of altruism even though I sometimes tell non-technical friends that I write open-source software to "democratize AI tools." The truth is more nuanced: open-source solved real business problems while aligning with deeper values about how software should be built and shared.
 
-For companies entering new markets, especially in rapidly ones like AI, open-source isn't just an option – it's increasingly becoming a necessity. It's about [annealing the market](https://a16z.com/market-annealing-getting-to-10m-arr-in-very-early-markets/) while building something meaningful that stands the test of public scrutiny.
+For companies entering new markets, especially in rapidly growing ones like AI, open-source isn't just an option – it's increasingly becoming a necessity. It's about [annealing the market](https://a16z.com/market-annealing-getting-to-10m-arr-in-very-early-markets/) while building something meaningful that stands the test of public scrutiny.
 
 The choice I made two years ago wasn't just about changing how I code – it was about fundamentally rethinking how a software company can succeed in an increasingly open world. By focusing on users, trust, transparency, and privacy, we discovered that open-source wasn't just a development methodology – it was a business catalyst that helped us build better products and establish the kind of trust that traditional approaches struggle to achieve.
 
