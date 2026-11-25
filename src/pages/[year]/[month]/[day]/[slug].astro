@@ -1,0 +1,61 @@
+---
+import type { GetStaticPaths } from "astro";
+import { render } from "astro:content";
+import Base from "../../../../layouts/Base.astro";
+import { SITE_TITLE } from "../../../../consts";
+import { formatDate, getPosts, postParams, postUrl, type Post } from "../../../../lib/posts";
+
+export const getStaticPaths = (async () => {
+  const posts = await getPosts();
+  return posts.map((post, i) => {
+    const [year, month, day, slug] = postParams(post);
+    return {
+      params: { year, month, day, slug },
+      // posts are newest-first
+      props: { post, newer: posts[i - 1], older: posts[i + 1] },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+interface Props {
+  post: Post;
+  newer?: Post;
+  older?: Post;
+}
+
+const { post, newer, older } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Base title={post.data.title} description={post.data.description}>
+  <article>
+    <header class="post-header">
+      <h1>{post.data.title}</h1>
+      <p class="post-meta">
+        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+        · {SITE_TITLE}
+      </p>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  {(older || newer) && (
+    <nav class="post-nav" aria-label="More posts">
+      {older && (
+        <a class="prev" href={postUrl(older)}>
+          <small>← Older</small>
+          {older.data.title}
+        </a>
+      )}
+      {newer && (
+        <a class="next" href={postUrl(newer)}>
+          <small>Newer →</small>
+          {newer.data.title}
+        </a>
+      )}
+    </nav>
+  )}
+</Base>
