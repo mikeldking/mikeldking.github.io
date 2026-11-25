@@ -1,4 +1,9 @@
-# From Skeptic to Advocate: How I Became an Open-Source Engineer
+---
+title: "From Skeptic to Advocate: How I Became an Open-Source Engineer"
+description: "How I discovered that open-source isn't just about giving away free software – it's about building better businesses through transparency, trust, and community."
+date: 2025-01-05
+tags: ["Other"]
+---
 
 Two years ago, I faced a unique **choice**: the opportunity to work on open-source while keeping a paycheck. As someone who had spent their entire career building closed-source products at privacy-focused companies, this proposition felt daunting and somewhat confusing. What did it even mean to "do" open-source at a company with successful closed-source products? The process seemed backwards – surely you start by figuring out what to build first then figure out whether or not to open-source it later?
 
