@@ -1,4 +1,6 @@
 ---
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
 import "../styles/global.css";
 import { SITE_DESCRIPTION, SITE_TITLE, SOCIALS } from "../consts";
 
@@ -31,13 +33,20 @@ const path = Astro.url.pathname.replace(/\.html$/, "");
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:creator" content="@mikeldking" />
+
+    <!-- Follow the system theme unless the visitor has used the footer toggle. -->
+    <script is:inline>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <header class="site-header">
       <div class="container">
         <a class="site-title" href="/">{SITE_TITLE}</a>
         <nav class="site-nav">
-          <a href="/" aria-current={path === "/" || path === "/index" ? "page" : undefined}>Home</a>
           <a href="/archive.html" aria-current={path === "/archive" ? "page" : undefined}>Writing</a>
         </nav>
       </div>
@@ -49,13 +58,30 @@ const path = Astro.url.pathname.replace(/\.html$/, "");
 
     <footer class="site-footer">
       <div class="container">
-        <span>© {new Date().getFullYear()} {SITE_TITLE}</span>
         <ul class="socials">
           {SOCIALS.map((s) => (
             <li><a href={s.href} rel="me">{s.label}</a></li>
           ))}
+          <li><a href="/feed.xml">RSS</a></li>
         </ul>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark theme">
+          <span class="to-dark">Dark</span><span class="to-light">Light</span>
+        </button>
       </div>
     </footer>
+
+    <script is:inline>
+      document.getElementById("theme-toggle").addEventListener("click", function () {
+        var root = document.documentElement;
+        var current =
+          root.dataset.theme ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        var next = current === "dark" ? "light" : "dark";
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem("theme", next);
+        } catch (e) {}
+      });
+    </script>
   </body>
 </html>

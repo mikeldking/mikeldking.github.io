@@ -2,7 +2,6 @@
 import type { GetStaticPaths } from "astro";
 import { render } from "astro:content";
 import Base from "../../../../layouts/Base.astro";
-import { SITE_TITLE } from "../../../../consts";
 import { formatDate, getPosts, postParams, postUrl, type Post } from "../../../../lib/posts";
 
 export const getStaticPaths = (async () => {
@@ -33,7 +32,6 @@ const { Content } = await render(post);
       <h1>{post.data.title}</h1>
       <p class="post-meta">
         <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
-        · {SITE_TITLE}
       </p>
     </header>
 

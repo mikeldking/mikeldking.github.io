@@ -8,12 +8,12 @@ interface Props {
 const { posts } = Astro.props;
 ---
 
-<ul class="post-list">
+<ul class="rows">
   {posts.map((post) => (
     <li>
       <a href={postUrl(post)}>
         <span class="title">{post.data.title}</span>
-        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+        <time class="meta" datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
       </a>
     </li>
   ))}
