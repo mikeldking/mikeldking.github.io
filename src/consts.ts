@@ -1,4 +1,5 @@
 export const SITE_TITLE = "Mikyo King";
+export const SITE_HANDLE = "mikeldking";
 export const SITE_DESCRIPTION = "Software builder. OSS engineer.";
 
 export const SOCIALS = [

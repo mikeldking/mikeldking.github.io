@@ -17,7 +17,9 @@ All tokens and styles live in `src/styles/global.css`. The page shell lives in
    no dividers between sections, no underlined chrome links, no cards, no shadows.
 5. **Quiet interaction.** Hover states shift a colour by one step over 150ms.
    Nothing moves, grows or draws on hover.
-6. **Text only.** No logo, icons or decorative imagery in the chrome.
+6. **Text only.** No logo, icons or decorative imagery in the chrome. The one
+   exception is the cursor after the handle, which shows only while it blinks
+   on load (see Interaction and motion).
 
 ## Colour
 
@@ -81,7 +83,8 @@ Rules:
 ## Layout
 
 - One column, `--measure: 700px`, centred, with a `1rem` side gutter.
-- Header: `5rem` tall. Site name on the left, `Writing` on the right in `--muted`.
+- Header: `5rem` tall. The handle on the left as `~/mikeldking` (`~/` in
+  `--muted` and hidden from screen readers), `Writing` on the right in `--muted`.
 - Footer: social links and RSS on the left, the theme toggle on the right, all
   in `--muted`, pinned to the bottom of short pages. Social links live only here.
 - Vertical rhythm: `2.5rem` above the intro or article header, `3rem` between
@@ -109,6 +112,10 @@ Rules:
 - **Focus:** a 1px `--fg` outline offset by 3px. Never remove it.
 - **Load:** direct children of `<main>` fade up 8px over 500ms, staggered by
   80ms. Disabled under `prefers-reduced-motion: reduce`.
+- **Cursor:** a block cursor after the handle blinks three times on load
+  (530ms on, 530ms off, no fade) and then stays hidden. It is a CSS
+  pseudo-element, so it is not content and needs no JavaScript. Under
+  `prefers-reduced-motion: reduce` it never appears.
 - **Selection:** inverted (`--fg` background, `--bg` text).
 
 ## Do not

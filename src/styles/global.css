@@ -119,6 +119,20 @@ h4 {
 .site-title {
   text-decoration: none;
 }
+.site-title-path {
+  color: var(--muted);
+}
+/* Terminal cursor after the handle. Hidden at rest; it blinks under Load-in. */
+.site-title::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1.15em;
+  margin-left: 0.14em;
+  vertical-align: text-bottom;
+  background: currentColor;
+  opacity: 0;
+}
 .site-nav {
   display: flex;
   align-items: center;
@@ -391,6 +405,17 @@ main > section + section {
   }
   main > :nth-child(n + 4) {
     animation-delay: 240ms;
+  }
+  .site-title::after {
+    animation: cursor-blink 1.06s step-end 3;
+  }
+}
+@keyframes cursor-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }
 @keyframes fade-in {
