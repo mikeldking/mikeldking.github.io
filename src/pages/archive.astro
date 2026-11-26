@@ -17,9 +17,9 @@ for (const post of posts) {
   </section>
 
   {[...byYear].map(([year, yearPosts]) => (
-    <>
+    <section>
       <h2 class="section-label">{year}</h2>
       <PostList posts={yearPosts} />
-    </>
+    </section>
   ))}
 </Base>
