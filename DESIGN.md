@@ -17,7 +17,9 @@ All tokens and styles live in `src/styles/global.css`. The page shell lives in
    no dividers between sections, no underlined chrome links, no cards, no shadows.
 5. **Quiet interaction.** Hover states shift a colour by one step over 150ms.
    Nothing moves, grows or draws on hover.
-6. **Text only.** No logo, icons or decorative imagery in the chrome.
+6. **Text only.** No logo, icons or decorative imagery in the chrome. The one
+   exception is the cursor after the handle, which shows only while it blinks
+   on load (see Interaction and motion).
 
 ## Colour
 
@@ -74,7 +76,8 @@ Rules:
 
 - Sans never appears on the home page, in lists or in navigation. Mono never
   sets running prose.
-- Mono text is always `0.875rem`, weight 400. No uppercase, no letter-spacing.- Tight negative tracking is for sans headings only.
+- Mono text is always `0.875rem`, weight 400. No uppercase, no letter-spacing.
+- Tight negative tracking is for sans headings only.
 - Dates use `tabular-nums`.
 
 ## Layout

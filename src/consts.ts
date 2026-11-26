@@ -1,5 +1,4 @@
 export const SITE_TITLE = "Mikyo King";
-/** Shown in the header as `~/mikeldking`. */
 export const SITE_HANDLE = "mikeldking";
 export const SITE_DESCRIPTION = "Software builder. OSS engineer.";
 

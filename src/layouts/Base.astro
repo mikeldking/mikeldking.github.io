@@ -41,7 +41,7 @@ const path = Astro.url.pathname.replace(/\.html$/, "");
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:creator" content="@mikeldking" />
+    <meta name="twitter:creator" content={`@${SITE_HANDLE}`} />
     {publishedTime && <meta property="article:published_time" content={publishedTime} />}
     {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, "\\u003c")} />}
 
