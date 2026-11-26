@@ -96,6 +96,8 @@ Rules:
   muted date (`.meta`) on the right, no rule. Use `PostList.astro`.
 - **Prose** (`.prose`): rendered Markdown. Blockquotes get a 1px left rule and
   muted text; code blocks get a 1px `--rule` border and scroll horizontally.
+- **Post meta** (`.post-meta`): the date, then a muted `Markdown` link to the
+  post's Markdown version.
 - **Post nav** (`.post-nav`): older on the left, newer on the right.
 
 ## Interaction and motion

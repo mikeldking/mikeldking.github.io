@@ -262,6 +262,9 @@ main > section + section {
   margin: 0;
   color: var(--muted);
 }
+.post-meta a:hover {
+  color: var(--fg);
+}
 
 .prose {
   font-family: var(--font-sans);

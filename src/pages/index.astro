@@ -1,12 +1,28 @@
 ---
 import Base from "../layouts/Base.astro";
 import PostList from "../components/PostList.astro";
+import { SITE_DESCRIPTION, SITE_TITLE, SOCIALS } from "../consts";
 import { getPosts } from "../lib/posts";
 
 const posts = await getPosts();
+const person = {
+  "@type": "Person",
+  name: SITE_TITLE,
+  url: Astro.site!.href,
+  description: SITE_DESCRIPTION,
+  sameAs: SOCIALS.filter((s) => s.href.startsWith("https://")).map((s) => s.href),
+};
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_TITLE,
+  url: Astro.site!.href,
+  description: SITE_DESCRIPTION,
+  author: person,
+};
 ---
 
-<Base>
+<Base jsonLd={jsonLd}>
   <section class="intro">
     <p><b>Mikyo King</b> is a software builder and OSS engineer.</p>
   </section>

@@ -2,6 +2,8 @@
 import type { GetStaticPaths } from "astro";
 import { render } from "astro:content";
 import Base from "../../../../layouts/Base.astro";
+import { SITE_TITLE } from "../../../../consts";
+import { abs, markdownPath } from "../../../../lib/markdown";
 import { formatDate, getPosts, postParams, postUrl, type Post } from "../../../../lib/posts";
 
 export const getStaticPaths = (async () => {
@@ -24,14 +26,38 @@ interface Props {
 
 const { post, newer, older } = Astro.props;
 const { Content } = await render(post);
+const url = abs(postUrl(post), Astro.site!);
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  keywords: post.data.tags,
+  url,
+  mainEntityOfPage: url,
+  author: { "@type": "Person", name: SITE_TITLE, url: Astro.site!.href },
+  encoding: {
+    "@type": "MediaObject",
+    encodingFormat: "text/markdown",
+    contentUrl: abs(markdownPath(postUrl(post)), Astro.site!),
+  },
+};
 ---
 
-<Base title={post.data.title} description={post.data.description}>
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  jsonLd={jsonLd}
+  publishedTime={post.data.date.toISOString()}
+>
   <article>
     <header class="post-header">
       <h1>{post.data.title}</h1>
       <p class="post-meta">
         <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+        {" · "}
+        <a href={markdownPath(postUrl(post))}>Markdown</a>
       </p>
     </header>
 
