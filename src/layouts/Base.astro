@@ -2,7 +2,7 @@
 import "@fontsource-variable/geist";
 import "@fontsource-variable/geist-mono";
 import "../styles/global.css";
-import { SITE_DESCRIPTION, SITE_TITLE, SOCIALS } from "../consts";
+import { SITE_DESCRIPTION, SITE_HANDLE, SITE_TITLE, SOCIALS } from "../consts";
 import { markdownPath } from "../lib/markdown";
 
 interface Props {
@@ -56,7 +56,7 @@ const path = Astro.url.pathname.replace(/\.html$/, "");
   <body>
     <header class="site-header">
       <div class="container">
-        <a class="site-title" href="/">{SITE_TITLE}</a>
+        <a class="site-title" href="/"><span class="site-title-path" aria-hidden="true">~/</span>{SITE_HANDLE}</a>
         <nav class="site-nav">
           <a href="/archive.html" aria-current={path === "/archive" ? "page" : undefined}>Writing</a>
         </nav>

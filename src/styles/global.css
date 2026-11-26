@@ -119,6 +119,34 @@ h4 {
 .site-title {
   text-decoration: none;
 }
+.site-title-path {
+  color: var(--muted);
+}
+/* A terminal cursor after the handle. It is hidden at rest; on load it blinks
+   three times and stays hidden. A pseudo-element, so it is not content. */
+.site-title::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 1.15em;
+  margin-left: 0.14em;
+  vertical-align: text-bottom;
+  background: currentColor;
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .site-title::after {
+    animation: cursor-blink 1.06s step-end 3;
+  }
+}
+@keyframes cursor-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 .site-nav {
   display: flex;
   align-items: center;

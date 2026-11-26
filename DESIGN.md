@@ -74,14 +74,14 @@ Rules:
 
 - Sans never appears on the home page, in lists or in navigation. Mono never
   sets running prose.
-- Mono text is always `0.875rem`, weight 400. No uppercase, no letter-spacing.
-- Tight negative tracking is for sans headings only.
+- Mono text is always `0.875rem`, weight 400. No uppercase, no letter-spacing.- Tight negative tracking is for sans headings only.
 - Dates use `tabular-nums`.
 
 ## Layout
 
 - One column, `--measure: 700px`, centred, with a `1rem` side gutter.
-- Header: `5rem` tall. Site name on the left, `Writing` on the right in `--muted`.
+- Header: `5rem` tall. The handle on the left as `~/mikeldking` (`~/` in
+  `--muted` and hidden from screen readers), `Writing` on the right in `--muted`.
 - Footer: social links and RSS on the left, the theme toggle on the right, all
   in `--muted`, pinned to the bottom of short pages. Social links live only here.
 - Vertical rhythm: `2.5rem` above the intro or article header, `3rem` between
@@ -109,6 +109,10 @@ Rules:
 - **Focus:** a 1px `--fg` outline offset by 3px. Never remove it.
 - **Load:** direct children of `<main>` fade up 8px over 500ms, staggered by
   80ms. Disabled under `prefers-reduced-motion: reduce`.
+- **Cursor:** a block cursor after the handle blinks three times on load
+  (530ms on, 530ms off, no fade) and then stays hidden. It is a CSS
+  pseudo-element, so it is not content and needs no JavaScript. Under
+  `prefers-reduced-motion: reduce` it never appears.
 - **Selection:** inverted (`--fg` background, `--bg` text).
 
 ## Do not
